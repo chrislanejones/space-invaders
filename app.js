@@ -10,7 +10,7 @@ let direction = 1;
 
 for (let i = 0; i < width * width; i++) {
   const square = document.createElement("div");
-  square.id = i;
+  //  square.id = i;
   grid.appendChild(square);
 }
 
@@ -88,12 +88,26 @@ function moveInvaders() {
 
   if (squares[currentShooterIndex].classList.contains("invader")) {
     resultsDisplay.innerHTML = "GAME OVER";
-    clearInterval(invadersId);
-  }
-
-  if (squares[currentShooterIndex].classList.contains("invader")) {
     squares[currentShooterIndex].classList.remove("shooter");
+    clearInterval(invadersId);
   }
 }
 
 invadersId = setInterval(moveInvaders, 60);
+
+function shoot(e) {
+  let laserId;
+  let currentLaserIndex = currentShooterIndex;
+
+  function moveLaser() {
+    squares[currentLaserIndex].classList.remove("laser");
+    currentLaserIndex -= width;
+    squares[currentLaserIndex].classList.add("laser");
+  }
+
+  if (e.key === "ArrowUp") {
+    laserId = setInterval(moveLaser, 100);
+  }
+}
+
+document.addEventListener("keydown", shoot);
