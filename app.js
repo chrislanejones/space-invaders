@@ -131,7 +131,7 @@ function shoot(e) {
     }
   }
 
-  if (e.key === "ArrowUp" || "Space") {
+  if (e.key === "ArrowUp" || e.key === " ") {
     laserId = setInterval(moveLaser, 100);
   }
 }

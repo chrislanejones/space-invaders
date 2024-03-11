@@ -57,6 +57,7 @@ body {
 
 .grid .laser {
   background-color: var(--orange) !important;
+  border-radius: 20px;
 }
 
 .grid .boom {
