@@ -62,6 +62,7 @@ function moveShooter(e) {
 
 document.addEventListener("keydown", moveShooter);
 
+// Move Invaders With Draw and SetInterval
 function moveInvaders() {
   const leftEdge = alienInvaders[0] % width === 0;
   const rightEdge =
