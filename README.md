@@ -2,5 +2,6 @@
 
 Fork of Ania Kubów - [YouTube](https://www.youtube.com/watch?v=s6LrpUTQQn0)
 
-- Updated styles
+- Updated Look and Feel - Space aliens are now SVGs
 - Shooter is removed when invader hit shooter
+- Added spacebar to shoot

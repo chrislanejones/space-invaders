@@ -31,33 +31,34 @@ body {
 }
 
 .grid {
-  width: 300px;
-  height: 300px;
-  border: solid 0.2rem var(--yellow);
+  width: 575px;
+  height: 600px;
+  border: solid 0.5rem var(--yellow);
   display: flex;
   flex-wrap: wrap;
 }
 
 .grid div {
-  width: 18px;
-  height: 18px;
+  width: 36px;
+  height: 36px;
   background-color: #191919;
   border: solid 0.1rem rgba(255, 255, 255, 0.1);
 }
 
 .grid .invader {
-  background-color: var(--blue);
+  background-image: url("data:image/svg+xml,%3Csvg height='32px' width='32px' version='1.1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' xml:space='preserve' fill='%23000000'%3E%3Cg id='SVGRepo_iconCarrier'%3E%3Cpath style='fill:%232dc4f0;' d='M469.344,266.664v-85.328h-42.656v-42.672H384v-21.328h42.688v-64h-64v42.656H320v42.672H192V95.992 h-42.656V53.336h-64v64H128v21.328H85.344v42.672H42.688v85.328H0v149.328h64v-85.328h21.344v85.328H128v42.672h106.688v-64h-85.344 v-21.328h213.344v21.328h-85.344v64H384v-42.672h42.688v-85.328H448v85.328h64V266.664H469.344z M192,245.336h-64v-64h64V245.336z M384,245.336h-64v-64h64V245.336z'/%3E%3C/g%3E%3C/svg%3E");
   border-radius: 0.3rem;
+  background-repeat: no-repeat;
 }
 
-.shooter {
+.grid .shooter {
   background-color: var(--red) !important;
 }
 
-.laser {
-  background-color: var(--orange);
+.grid .laser {
+  background-color: var(--orange) !important;
 }
 
-.boom {
+.grid .boom {
   background-color: var(--yellow);
 }

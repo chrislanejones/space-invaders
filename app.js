@@ -1,13 +1,14 @@
 const grid = document.querySelector(".grid");
-const resultsDisplay = document.querySelector(".results");
+const resultDisplay = document.querySelector(".results");
+let currentShooterIndex = 202;
 const width = 15;
 const aliensRemoved = [];
-let currentShooterIndex = 202;
 let invadersId;
 let isGoingRight = true;
-let isGoingDown = true;
 let direction = 1;
+let results = 0;
 
+// Set the Grid Size
 for (let i = 0; i < width * width; i++) {
   const square = document.createElement("div");
   //  square.id = i;
@@ -18,6 +19,7 @@ const squares = Array.from(document.querySelectorAll(".grid div"));
 
 // console.log(squares);
 
+// Squares with original sprite placement
 const alienInvaders = [
   0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 30, 31,
   32, 33, 34, 35, 36, 37, 38, 39,
@@ -37,12 +39,14 @@ draw();
 
 squares[currentShooterIndex].classList.add("shooter");
 
+// Removes Invaders
 function remove() {
   for (let i = 0; i < alienInvaders.length; i++) {
     squares[alienInvaders[i]].classList.remove("invader");
   }
 }
 
+// Move Shooter With Keyboard
 function moveShooter(e) {
   squares[currentShooterIndex].classList.remove("shooter");
   switch (e.key) {
@@ -87,13 +91,18 @@ function moveInvaders() {
   draw();
 
   if (squares[currentShooterIndex].classList.contains("invader")) {
-    resultsDisplay.innerHTML = "GAME OVER";
     squares[currentShooterIndex].classList.remove("shooter");
+    resultDisplay.innerHTML = "GAME OVER";
+    clearInterval(invadersId);
+  }
+
+  if (aliensRemoved.length === alienInvaders.length) {
+    resultDisplay.innerHTML = "YOU WIN";
     clearInterval(invadersId);
   }
 }
-
-invadersId = setInterval(moveInvaders, 60);
+// Set The Speed of the Invaders
+invadersId = setInterval(moveInvaders, 500);
 
 function shoot(e) {
   let laserId;
@@ -122,7 +131,7 @@ function shoot(e) {
     }
   }
 
-  if (e.key === "ArrowUp") {
+  if (e.key === "ArrowUp" || "Space") {
     laserId = setInterval(moveLaser, 100);
   }
 }
